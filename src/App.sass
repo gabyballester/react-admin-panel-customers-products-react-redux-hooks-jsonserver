@@ -1,44 +1,86 @@
+//Importo fuente de estilo
+@import 'http://fonts.googleapis.com/css2?family=Lato&display=swap'
 
-// body
-//   margin: 0
-//   padding: 0
-//   font-weight: 400
-//   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif
-//   -webkit-font-smoothing: antialiased
-//   -moz-osx-font-smoothing: grayscale
-//   font-size: 16px
+// Formatos comunes
+*
+    box-sizing: border box
+    margin: 0
+    padding: 0
+    font-family: 'Lato', sans-serif
 
-// h1 a
-//   font-size: 1.8rem
+// Estilo personalizado para las vistas enrutadas
+.home, .customers, .products
+    display: flex
+    height: 90vh
+    align-items: center
+    justify-content: center
+    font-size: 3rem
 
-// h1 a.text-light:hover
-//   color: white!important
-//   text-decoration: none!important
 
-// .nuevo-post
-//   font-weight: bold
-//   text-transform: uppercase
+// Variables comunes de estilo
+$darkBlue: #060b26
+$clearBlue: #1a83ff
 
-// .btn
-//   font-weight: bold
+// Estilos para el Navbar
+.navbar
+    background-color: $darkBlue
+    height: 80px
+    display: flex
+    justify-content: start
+    align-items: center
 
-// .form-group label,
-// .list-group-item
-//   font-size: 1.4rem
+.menu-bars
+    margin-left: 2rem
+    font-size: 2rem
+    background: none
+    color: $clearBlue
 
-// .navbar .btn
-//   flex: 1
+.nav-menu
+    background-color: $darkBlue
+    width: 250px
+    height: 100vh
+    display: flex
+    justify-content: center
+    position: fixed
+    top: 0
+    // left: -100%
+    transition: 850ms
 
-// @media (min-width:768px)
-//   .navbar .btn
-//     flex: 0 1 auto
+.nav-menu-active
+    left: 0
+    transition: 350ms
 
-// .acciones
-//   margin: 1rem 0
+.nav-text
+    display: flex
+    justify-content: start
+    padding: 8px 0px 8px 16px
+    list-style: none
+    height: 60px
 
-// @media (min-width:768px)
-//   .acciones
-//     margin: 0
+.nav-text a
+    text-decoration: none
+    color: #f5f5f5
+    font-size: 18px
+    width: 95%
+    height: 100%
+    display: flex
+    align-items: center
+    padding: 0 16px
+    border-radius: 4px
 
-// .acciones > *
-//   flex: 1
+.nav-text a:hover
+    background-color: $clearBlue
+
+.nav-menu-items
+    width: 100%
+
+.navbar-toggle
+    background-color: $darkBlue
+    width: 100%
+    height: 80px
+    display: flex
+    justify-content: start
+    align-items: center
+
+span
+    margin-left: 16px
