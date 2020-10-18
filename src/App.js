@@ -1,9 +1,18 @@
 import React from 'react';
 import './App.sass';
+import Navbar from "./components/Navbar";
+import {BrowserRouter as Router, Switch, Route} from "react-router-dom";
 
 function App() {
   return (
-   <h1 className="title">Ecommerce Panel</h1>
+   <>
+   <Router>
+     <Navbar/>
+     <Switch>
+       <Route path='/'/>
+     </Switch>
+   </Router>
+   </>
   );
 }
 
