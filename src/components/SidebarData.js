@@ -8,18 +8,22 @@ export const SidebarData = [
         title: 'Home',
         path: '/',
         icon: <AiIcons.AiFillHome />,
-        cName: 'nav-text'
+        iconClosed: "icon-closed",
+        cName: 'nav-text',
+        cNameClosed: 'nav-text nav-text-closed'
     },
     {
         title: 'Customers',
         path: '/customers',
         icon: <IoIcons.IoIosPeople />,
-        cName: 'nav-text'
+        cName: 'nav-text',
+        cNameClosed: 'nav-text nav-text-closed'
     },
     {
         title: 'Products',
         path: '/products',
         icon: <FaIcons.FaCartPlus />,
-        cName: 'nav-text'
+        cName: 'nav-text',
+        cNameClosed: 'nav-text nav-text-closed'
     },
 ]
