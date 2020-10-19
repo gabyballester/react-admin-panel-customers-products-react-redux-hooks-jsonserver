@@ -1,0 +1,18 @@
+{
+    "customers": [
+        {
+            "name": "Juan"
+        },
+        {
+            "name": "Carlos"
+        }
+    ],
+    "products": [
+        {
+            "name": "Disco duro"
+        },
+        {
+            "name": "Pendrive"
+        }
+    ]
+}

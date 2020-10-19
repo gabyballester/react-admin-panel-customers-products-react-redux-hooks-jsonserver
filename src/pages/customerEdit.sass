@@ -1,0 +1,32 @@
+@import ../App
+
+// contenedor 
+.main-container-form
+    display: grid
+    height: $bodyHeight
+    grid-template-areas: "header" "main"
+    grid-template-rows: $bodyTemplateRows
+    grid-template-columns: $bodyTemplateColumns
+
+.header-form
+    grid-area: header
+    margin-left: 88px
+    display: flex
+    height: 100%
+    flex-direction: row
+    justify-content: space-around
+    align-items: center
+
+.main-form
+    grid-area: main
+    height: 100%
+    display: flex
+    justify-content: center
+    padding-top: 4rem
+    border: 1px solid $grey
+    margin-left: 88px
+    
+
+.form-style
+    width: 450px
+
