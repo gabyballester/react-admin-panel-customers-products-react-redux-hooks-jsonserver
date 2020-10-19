@@ -36,7 +36,7 @@ console.log(customers);
                         <tr className="mx-auto">
                             <th>ID</th>
                             <th>Nombre</th>
-                            <th>Acciones</th>
+                            <th colSpan="2"></th>
                         </tr>
                     </thead> 
                     <tbody className="table-body">
