@@ -11,8 +11,19 @@ function Customers() {
                 <h2>Clientes</h2>
                 <Link to={"/customer/new"} className="btn btn-primary">&#43; Nuevo </Link>
             </div>
+            <div className="main">
 
-            <div className="main">Main</div>
+                <table className="table table-striped ml-5 mr-5">
+                    <thead className="bg-light">
+                        <tr className="mx-auto">
+                            <th scope="col">Nombre</th>
+                            <th scope="col">Acciones</th>
+                        </tr>
+
+                    </thead>
+                </table>
+
+            </div>
 
         </div>
 

@@ -8,7 +8,7 @@ function CustomerNew() {
         <h2>Nuevo cliente</h2>
       </div>
 
-      <div className="main">
+      <div className="main-form">
         <form className="form-style">
           <div class="form-group">
             <label for="name">Nombre completo</label>
