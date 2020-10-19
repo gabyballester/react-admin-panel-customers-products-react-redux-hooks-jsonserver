@@ -1,7 +1,39 @@
-import React from "react";
+import React, { useState } from "react";
 import "./customerNew.sass";
 
+//Actions de Redux
+import {
+  CustomerAddAction
+} from '../actions/customerActions.js';
+import { useDispatch, useSelector } from 'react-redux';
+
 function CustomerNew() {
+
+  //state del componente
+  const [name, setname] = useState('')
+
+  // utilizar use dispatch y crea una función
+  const dispatch = useDispatch();
+  // aquí llamo el action de customerActions
+  const addCustomer = (customer) => dispatch(CustomerAddAction(customer));
+
+  const submitNewCustomer = e => {
+    e.preventDefault();
+
+    // validar formulario
+    if (name.trim() === '') {
+      return;
+    }
+
+    // si no hay errores
+
+    // crear el nuevo cliente
+    addCustomer({
+      // pasamos a addCustomer como parámetro -> (customer)
+      name
+    });
+  }
+
   return (
     <div className="main-container-form">
       <div className="header-form">
@@ -9,20 +41,26 @@ function CustomerNew() {
       </div>
 
       <div className="main-form">
-        <form className="form-style">
-          <div class="form-group">
-            <label for="name">Nombre completo</label>
+        <form
+          className="form-style"
+          onSubmit={submitNewCustomer}
+        >
+          <div className="form-group">
+            <label>Nombre completo</label>
             <input
               type="text"
-              class="form-control"
+              className="form-control"
               id="name"
+              name="name"
+              value={name}
+              onChange={e => setname(e.target.value)}
               placeholder="Escribe el nombre completo"
             />
           </div>
 
-          <div class="d-flex justify-content-end">
+          <div className="d-flex justify-content-end">
             <button
-              class="btn btn-primary d-block w-100"
+              className="btn btn-primary d-block w-100"
               type="submit"
             >
               Guardar
