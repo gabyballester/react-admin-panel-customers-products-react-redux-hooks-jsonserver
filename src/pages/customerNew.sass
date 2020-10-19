@@ -1,14 +1,14 @@
 @import ../App
 
 // contenedor 
-.main-container
+.main-container-form
     display: grid
     height: $bodyHeight
     grid-template-areas: "header" "main"
     grid-template-rows: $bodyTemplateRows
     grid-template-columns: $bodyTemplateColumns
-    
-.header
+
+.header-form
     grid-area: header
     margin-left: 88px
     display: flex
@@ -16,9 +16,8 @@
     flex-direction: row
     justify-content: space-around
     align-items: center
-    
 
-main
+.main
     grid-area: main
     height: 100%
     display: flex
@@ -26,3 +25,7 @@ main
     padding-top: 4rem
     background-color: red
     margin-left: 88px
+    
+
+.form-style
+    width: 450px
