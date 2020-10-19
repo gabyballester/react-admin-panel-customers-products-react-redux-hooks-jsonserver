@@ -9,10 +9,15 @@ import CustomerNew from './pages/CustomerNew';
 import CustomerEdit from './pages/CustomerEdit';
 import Footer from './components/Footer'
 
+//Redux
+
+import {Provider} from 'react-redux';
+import store from './store';
 
 function App() {
   return (
    <Router>
+     <Provider store={store}>
      <Navbar/>
      <Switch>
        <Route path='/' exact component={Home}/>
@@ -24,6 +29,7 @@ function App() {
        {/* <Route path='/product/edit/:id' component={ProductEdit}/> */}
      </Switch>
      <Footer/>
+     </Provider>
    </Router>
   );
 }
