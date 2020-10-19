@@ -1,5 +1,5 @@
 import React from 'react'
-import {Link} from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import './customers.sass';
 
 function Customers() {
@@ -9,10 +9,10 @@ function Customers() {
 
             <div className="header">
                 <h2>Clientes</h2>
-                <Link to={"/customer/new"} className="btn btn-sm btn-primary">&#43; Nuevo </Link>
+                <Link to={"/customer/new"} className="btn btn-primary">&#43; Nuevo </Link>
             </div>
 
-            <main>Main</main>
+            <div className="main">Main</div>
 
         </div>
 
