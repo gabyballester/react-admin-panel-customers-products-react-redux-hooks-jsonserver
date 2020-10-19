@@ -7,7 +7,6 @@ import Home from "./pages/Home";
 import Customers from './pages/Customers';
 import CustomerNew from './pages/CustomerNew';
 import CustomerEdit from './pages/CustomerEdit';
-import Footer from './components/Footer'
 
 //Redux
 
@@ -28,7 +27,6 @@ function App() {
        {/* <Route path='/product/new' component={ProductNew}/> */}
        {/* <Route path='/product/edit/:id' component={ProductEdit}/> */}
      </Switch>
-     <Footer/>
      </Provider>
    </Router>
   );
