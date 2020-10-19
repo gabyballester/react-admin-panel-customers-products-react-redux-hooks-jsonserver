@@ -3,15 +3,22 @@ import {
     ADD_CUSTOMER_SUCCESS,
     ADD_CUSTOMER_ERROR
 } from '../types';
+import axiosService from '../config/axios';
 
 //Crear nuevo cliente
-export function CustomerAddAction(customer) {
-    return (dispatch) => {
+export function customerAddAction(customer){
+    return async (dispatch) => {
         dispatch(addCustomer());
         try {
-            dispatch(addProductSuccess(customer))
+            //insertar en db
+            await axiosService.post('/customers', customer);
+            //si la inserción es correcta, actualiza el state
+            dispatch(addProductSuccess(customer));
+            console.log(customer);
         } catch (error) {
-            dispatch(addProductError(true))
+            console.error(error);
+            // si falla agrega el error al state
+            dispatch(addProductError(true));
         }
     }
 }

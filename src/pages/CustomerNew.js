@@ -1,21 +1,26 @@
 import React, { useState } from "react";
+import { useDispatch, useSelector } from 'react-redux';
 import "./customerNew.sass";
 
 //Actions de Redux
 import {
-  CustomerAddAction
+  customerAddAction
 } from '../actions/customerActions.js';
-import { useDispatch, useSelector } from 'react-redux';
 
-function CustomerNew() {
+function CustomerNew({history}) {
 
   //state del componente
   const [name, setname] = useState('')
 
   // utilizar use dispatch y crea una función
   const dispatch = useDispatch();
+
+  //Acceder al state del store con useSelector
+  const loading = useSelector(state => state.customers.loading);
+  const error = useSelector(state => state.customers.error);
+
   // aquí llamo el action de customerActions
-  const addCustomer = (customer) => dispatch(CustomerAddAction(customer));
+  const addCustomer = (customer) => dispatch(customerAddAction(customer));
 
   const submitNewCustomer = e => {
     e.preventDefault();
@@ -32,6 +37,9 @@ function CustomerNew() {
       // pasamos a addCustomer como parámetro -> (customer)
       name
     });
+    // redirección al listado
+    history.push('/customers')
+
   }
 
   return (
@@ -57,6 +65,7 @@ function CustomerNew() {
               placeholder="Escribe el nombre completo"
             />
           </div>
+         
 
           <div className="d-flex justify-content-end">
             <button
@@ -66,6 +75,8 @@ function CustomerNew() {
               Guardar
           </button>
           </div>
+          {loading ? <p> Cargando...</p> : null}
+        {error ? <p className="alert alert-danger p2">Hubo un error</p> : null}
         </form>
       </div>
     </div>
