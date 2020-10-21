@@ -1,4 +1,5 @@
 import React from 'react'
+import "./productnew.sass";
 
 function ProductNew() {
   return (
@@ -64,7 +65,7 @@ export default ProductNew
 
 // import React, { useState } from "react";
 // import { useDispatch, useSelector } from 'react-redux';
-// import "./productNew.sass";
+
 
 // //Actions de Redux
 // import {
