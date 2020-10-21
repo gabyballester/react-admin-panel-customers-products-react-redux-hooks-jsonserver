@@ -6,8 +6,9 @@ import "./customerNew.sass";
 import {
   customerAddAction
 } from '../actions/customerActions.js';
+import { showAlertStart, hideAlertStart } from '../actions/alertActions';
 
-function CustomerNew({history}) {
+function CustomerNew({ history }) {
 
   //state del componente
   const [name, setname] = useState('')
@@ -18,6 +19,7 @@ function CustomerNew({history}) {
   //Acceder al state del store con useSelector
   const loading = useSelector(state => state.customers.loading);
   const error = useSelector(state => state.customers.error);
+  const alert = useSelector(state => state.alert.alert);
 
   // aquí llamo el action de customerActions
   const addCustomer = (customer) => dispatch(customerAddAction(customer));
@@ -27,10 +29,17 @@ function CustomerNew({history}) {
 
     // validar formulario
     if (name.trim() === '') {
+
+      const alertObject = {
+        msg: 'Campo obligatorio',
+        classes: "alert-danger text-center text-uppercase text-danger"
+      }
+      dispatch(showAlertStart(alertObject));
       return;
     }
 
     // si no hay errores
+    dispatch(hideAlertStart());
 
     // crear el nuevo cliente
     addCustomer({
@@ -63,9 +72,11 @@ function CustomerNew({history}) {
               value={name}
               onChange={e => setname(e.target.value)}
               placeholder="Escribe el nombre completo"
+              autoFocus={true}
             />
+            {alert ? <p className={alert.classes}>{alert.msg}</p> : null}
           </div>
-         
+
 
           <div className="d-flex justify-content-end">
             <button
@@ -76,7 +87,7 @@ function CustomerNew({history}) {
           </button>
           </div>
           {loading ? <p> Cargando...</p> : null}
-        {error ? <p className="alert alert-danger p2">Hubo un error</p> : null}
+          {error ? <p className="alert alert-danger p2">Hubo un error</p> : null}
         </form>
       </div>
     </div>

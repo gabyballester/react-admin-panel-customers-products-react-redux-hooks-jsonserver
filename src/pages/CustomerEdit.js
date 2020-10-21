@@ -1,7 +1,44 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { editCustomerStartAction } from "../actions/customerActions";
+import { useHistory } from "react-router-dom";
 import "./customerEdit.sass";
 
 function CustomerEdit() {
+
+  const history = useHistory();
+
+  const dispatch = useDispatch();
+
+  //nuevo state de cliente
+  const [customer, saveCustomer] = useState({
+    name: "",
+  });
+
+  // cliente a editar
+  const customerEdit = useSelector((state) => state.customers.customerEdit);
+
+  // // llenamos el state automáticamente
+  useEffect(() => {
+    saveCustomer(customerEdit);
+  }, [customerEdit]);
+
+  // //leer datos formulario
+  const onChangeForm = (e) => {
+    saveCustomer({
+      ...customer,
+      [e.target.name]: e.target.value,
+    });
+  };
+
+  const { name } = customer;
+
+  const submitEditCustomer = (e) => {
+    e.preventDefault();
+    dispatch(editCustomerStartAction(customer));
+    history.push('/customers')
+  };
+
   return (
     <div className="main-container-form">
       <div className="header-form">
@@ -9,24 +46,25 @@ function CustomerEdit() {
       </div>
 
       <div className="main-form">
-        <form className="form-style">
-          <div class="form-group">
-            <label for="name">Nombre completo</label>
+        <form onSubmit={submitEditCustomer} className="form-style">
+          <div className="form-group">
+            <label>Editar nombre completo</label>
             <input
               type="text"
-              class="form-control"
+              className="form-control"
+              name="name"
               id="name"
               placeholder="Escribe el nombre completo"
+              autoFocus={true}
+              value={name}
+              onChange={onChangeForm}
             />
           </div>
 
-          <div class="d-flex justify-content-end">
-            <button
-              class="btn btn-primary d-block w-100"
-              type="submit"
-            >
+          <div className="d-flex justify-content-end">
+            <button className="btn btn-primary d-block w-100" type="submit">
               Modificar
-          </button>
+            </button>
           </div>
         </form>
       </div>

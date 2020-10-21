@@ -1,80 +1,8 @@
 {
   "customers": [
     {
-      "id": 1,
-      "name": "Juan"
-    },
-    {
-      "id": 2,
-      "name": "Carlos"
-    },
-    {
-      "name": "asdf",
-      "id": 3
-    },
-    {
-      "name": "asdf",
-      "id": 4
-    },
-    {
-      "name": "asdf",
-      "id": 5
-    },
-    {
-      "name": "asdf",
-      "id": 6
-    },
-    {
-      "name": "asdfasdf",
-      "id": 7
-    },
-    {
-      "name": "asdfasdf",
-      "id": 8
-    },
-    {
-      "name": "asdfasdf",
-      "id": 9
-    },
-    {
-      "name": "asdfasdf",
-      "id": 10
-    },
-    {
-      "name": "asdfasdf",
-      "id": 11
-    },
-    {
-      "name": "asdfasdf",
-      "id": 12
-    },
-    {
-      "name": "asdfasdf",
-      "id": 13
-    },
-    {
-      "name": "asdfasdf",
-      "id": 14
-    },
-    {
-      "name": "asdfasdf",
-      "id": 15
-    },
-    {
-      "name": "asdfasdf",
-      "id": 16
-    },
-    {
-      "name": "asdfasdf",
-      "id": 17
-    },
-    {
-      "name": "asdfasf",
-      "id": 18
-    },
-    {
-      "name": "asdfasdf",
-      "id": 19
+      "name": "Carlos Gómez",
+      "id": 1
     }
   ],
   "products": [

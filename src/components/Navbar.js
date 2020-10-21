@@ -8,7 +8,9 @@ import './Navbar.sass';
 
 function Navbar() {
   const [sidebar, setSidebar] = useState(false);
-  const showSidebar = () => setSidebar(!sidebar);
+  const showOrHideSidebar = () => setSidebar(!sidebar);
+
+
   console.log(sidebar);
   return (
     <>
@@ -16,9 +18,9 @@ function Navbar() {
         <div>
           <Link to="#" className="menu-bars">
             {!sidebar ? (
-              <FaIcons.FaBars onClick={showSidebar} />
+              <FaIcons.FaBars onClick={showOrHideSidebar} />
             ) : (
-                <AiIcons.AiOutlineClose onClick={showSidebar} />
+                <AiIcons.AiOutlineClose onClick={showOrHideSidebar} />
               )}
           </Link>
         </div>
@@ -30,7 +32,11 @@ function Navbar() {
       <nav
         className={sidebar ? "nav-menu active" : "nav-menu"}
       >
-        <ul className="nav-menu-items">
+        <ul
+        className="nav-menu-items"
+        onMouseEnter={()=>setSidebar(true)}
+        onMouseLeave={()=>setSidebar(false)}
+        >
           {SidebarData.map((item, index) => {
             return (
               <li
