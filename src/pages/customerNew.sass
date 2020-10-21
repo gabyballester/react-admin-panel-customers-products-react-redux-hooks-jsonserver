@@ -1,4 +1,4 @@
-@import ../App
+@import ../commonStyles
 
 // contenedor 
 .main-container-form
@@ -7,10 +7,11 @@
     grid-template-areas: "header" "main"
     grid-template-rows: $bodyTemplateRows
     grid-template-columns: $bodyTemplateColumns
+    justify-content: flex-start
+    align-items: center
 
 .header-form
     grid-area: header
-    margin-left: 88px
     display: flex
     height: 100%
     flex-direction: row
@@ -23,10 +24,15 @@
     display: flex
     justify-content: center
     padding-top: 4rem
-    border: 1px solid $grey
-    margin-left: 88px
-    
+    width: 100%
 
 .form-style
     width: 450px
+    display: flex
+    flex-direction: column
+    @media screen and ( max-width: $mobile)
+        flex-direction: column
+        max-width: 300px
+
+
 

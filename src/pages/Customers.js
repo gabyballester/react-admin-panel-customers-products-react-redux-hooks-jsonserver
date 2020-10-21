@@ -24,32 +24,20 @@ function Customers() {
 
   return (
     <div className="main-container">
+
       <div className="header">
         <h2>Clientes</h2>
-        <Link to={"/customer/new"} className="btn btn-primary">
-          &#43; Nuevo{" "}
+        <Link to={"/customer/new"} className="button-new btn btn-primary">
+         &#43;<span>Nuevo</span>
         </Link>
       </div>
+
       <div className="main">
-
-      <div className="new-table">
-          
-      </div>
-
-        <table className="table table-striped ml-5 mr-5">
-          <thead className="bg-light">
-            <tr className="mx-auto">
-              <th>ID</th>
-              <th>Nombre</th>
-              <th colSpan="2"></th>
-            </tr>
-          </thead>
-          <tbody className="table-body">
-            {customers.length !== 0 ? (
-              customers.map((customer) => (
-                <Customer key={customer.id} customer={customer} />
-              ))
-            ) : (
+          {customers.length !== 0 ? (
+            customers.map((customer) => (
+              <Customer key={customer.id} customer={customer} />
+            ))
+          ) : (
               <tr>
                 {error ? (
                   // <p className="font-weight-bold alert alert-danger text-center">
@@ -59,27 +47,25 @@ function Customers() {
                     </p>
                   </td>
                 ) : (
-                  <>
-                    {loading ? (
-                      <td colSpan="3">
-                        <p className="font-weight-bold text-danger">
-                          "Cargando"
+                    <>
+                      {loading ? (
+                        <td colSpan="3">
+                          <p className="font-weight-bold text-danger">
+                            "Cargando"
                         </p>
-                      </td>
-                    ) : (
-                      <td colSpan="3">
-                        <p className="font-weight-bold text-danger">
-                          "No hay clientes"
+                        </td>
+                      ) : (
+                          <td colSpan="3">
+                            <p className="font-weight-bold text-danger">
+                              "No hay clientes"
                         </p>
-                      </td>
-                    )}
-                  </>
-                )}
+                          </td>
+                        )}
+                    </>
+                  )}
               </tr>
             )}
-          </tbody>
-        </table>
-      </div>
+        </div>
     </div>
   );
 }

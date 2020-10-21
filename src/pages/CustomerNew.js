@@ -63,7 +63,7 @@ function CustomerNew({ history }) {
           onSubmit={submitNewCustomer}
         >
           <div className="form-group">
-            <label>Nombre completo</label>
+            <label>Escribe nombre completo</label>
             <input
               type="text"
               className="form-control"

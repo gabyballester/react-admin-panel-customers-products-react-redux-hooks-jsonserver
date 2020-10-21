@@ -1,4 +1,4 @@
-import React from "react";
+import React, { Fragment } from "react";
 import { useHistory } from "react-router-dom";
 import Swal from "sweetalert2";
 import "./customer.sass";
@@ -35,33 +35,43 @@ function Customer({ customer }) {
 
   //redirección a edit de forma programada
   const redirectToEdition = (customer) => {
-      dispatch(editCustomerGetAction(customer));
+    dispatch(editCustomerGetAction(customer));
     history.push(`/customer/edit/${customer.id}`);
   };
 
   return (
-    <tr className="customers-overflow">
-      <td>{id}</td>
-      <td>{name}</td>
-      <td className="button-div">
-        <button
-          type="button"
-          onClick={() => redirectToEdition(customer)}
-          className="btn btn-sm btn-success"
-        >
-          Editar
+    <Fragment>
+
+      <div className="customer-container">
+        <div className="customer-info">
+          <div className="customer-id">
+            <p className="id">id:{id}</p>
+          </div>
+
+          <div className="customer-name">
+            <p className="legend">Nombre: <span ClassName="name">{name}</span></p>
+          </div>
+          
+        </div>
+
+        <div className="actions">
+          <button
+            type="button"
+            onClick={() => redirectToEdition(customer)}
+            className="button btn btn-success"
+          >
+            Editar
         </button>
-      </td>
-      <td className="button-div justify-content-end">
-        <button
-          type="button"
-          className="btn btn-sm btn-danger"
-          onClick={() => confirmDeleteCustomer(id)}
-        >
-          Eliminar
+          <button
+            type="button"
+            className="button btn btn-danger"
+            onClick={() => confirmDeleteCustomer(id)}
+          >
+            Eliminar
         </button>
-      </td>
-    </tr>
+        </div>
+      </div>
+    </Fragment>
   );
 }
 

@@ -1,14 +1,58 @@
-tr,td
-    height: 20px!important
-    line-height: 2
-    font-size: .7rem
+@import ../commonStyles
+
+
+.customer-container
+    display: flex
+    flex-direction: row
+    max-width: 600px
+    width: 100%
+    justify-content: space-between
+    align-items: center
+    padding: 0em 1em 0em 1em
+    border: 1px solid #ccc
+    margin: .1em 0em
+    border-radius: 10px
+    @media screen and ( max-width: $mobile )
+        flex-direction: column
+        max-width: 300px
+
+.customer-info
+    dislay: flex
+    flex-direction: row
+    justify-content: space-between
+    align-items: space-between
+    @media screen and ( max-width: $mobile )
+        justify-content: center
+        align-items: center
+
+.customer-id, .customer-name
+    display: inline-block
+
+.legend, .name, .id
+    margin: 0!important
+    margin: 0em 1em!important
+    white-space: nowrap
+
+.button
+    margin: .5em 1em .5em .5em!important
+    width: 5em
+    padding: .3em 0em!important
+
+.actions
+    witdh: 100%!important
+    display: flex!important
+    flex-direction: row!important
+    align-items: space-between!important
+    flex-flow: wrap
+    padding: 0
+
+.actions
+    @media (max-width: $mobile)
+        width: 300px
+        display: flex
+        flex-direction: row
+        justify-content: space-around
 
 button
     margin: 0!important
     padding: .1rem!important
-
-td
-    vertical-align: middle!important
-    margin: 0!important
-    padding: .3rem!important
-    padding-left: 5rem!important
