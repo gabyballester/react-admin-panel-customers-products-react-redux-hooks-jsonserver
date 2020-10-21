@@ -7,32 +7,18 @@
     {
       "name": "Juanjo López",
       "id": 3
-    },
-    {
-      "name": "Ana Parreño",
-      "id": 4
-    },
-    {
-      "name": "Genaro Rives",
-      "id": 5
-    },
-    {
-      "name": "Amadeo Saboyaa",
-      "id": 6
-    },
-    {
-      "name": "Roberto Rober",
-      "id": 7
     }
   ],
   "products": [
     {
       "id": 1,
-      "name": "Disco duro"
+      "name": "Disco duro",
+      "price": "60"
     },
     {
       "id": 2,
-      "name": "Pendrive"
+      "name": "Pendrive",
+      "price": "20"
     }
   ]
 }
