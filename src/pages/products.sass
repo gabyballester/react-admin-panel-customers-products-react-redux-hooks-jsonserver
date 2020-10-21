@@ -1,0 +1,39 @@
+@import ../commonStyles
+
+// contenedor 
+.main-container
+    display: grid
+    height: $bodyHeight
+    grid-template-areas: "header" "main"
+    grid-template-rows: 70px 1fr
+    grid-template-columns: 1fr
+    justify-content: center
+    align-items: center
+    
+.header
+    grid-area: header
+    display: flex
+    height: 100%
+    flex-direction: row
+    justify-content: space-around
+    align-items: center
+    padding: 20%
+
+.button-new
+    padding-right: 1.2em!important
+
+.main
+    grid-area: main
+    display: flex
+    height: 100%
+    flex-direction: column
+    justify-content: flex-start
+    align-items: center
+    margin-top: 1rem
+   
+
+ 
+
+
+
+
