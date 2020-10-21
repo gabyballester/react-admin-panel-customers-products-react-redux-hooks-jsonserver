@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { editCustomerStartAction } from "../actions/customerActions";
 import { useHistory } from "react-router-dom";
-import "./customerEdit.sass";
+import "./customeredit.sass";
 
 function CustomerEdit() {
 
