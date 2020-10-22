@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { editCustomerStartAction } from "../actions/customerActions";
 import { useHistory } from "react-router-dom";
 import "./customeredit.sass";
+import { showAlertStart, hideAlertStart } from '../actions/alertActions';
 
 const CustomerEdit = () => {
 
@@ -16,6 +17,10 @@ const CustomerEdit = () => {
 
   // cliente a editar
   const customerEdit = useSelector((state) => state.customers.customerEdit);
+  //Acceder al state del store con useSelector
+  const loading = useSelector(state => state.customers.loading);
+  const error = useSelector(state => state.customers.error);
+  const alert = useSelector(state => state.alert.alert);
 
   // llenamos el state automáticamente
   useEffect(() => {
@@ -24,16 +29,38 @@ const CustomerEdit = () => {
 
   // //leer datos formulario
   const onChangeForm = (e) => {
+    // Reseteo la posible alerta
+    dispatch(hideAlertStart());
     saveCustomer({
       ...customer,
       [e.target.name]: e.target.value,
     });
   };
-// deconstruyo datos del cliente
+  // deconstruyo datos del cliente
   const { name } = customer;
 
   const submitEditCustomer = (e) => {
     e.preventDefault();
+    // validar formulario
+    if (name.trim() === '') {
+      const alertObject = {
+        msg: 'Campo vacío',
+        classes: "alert-danger text-center text-danger p-0 mt-3"
+      }
+      dispatch(showAlertStart(alertObject));
+      return;
+    }
+    // Impedir campos iguales
+    if (name === customerEdit.name) {
+      const alertObject = {
+        msg: 'Sin cambios',
+        classes: "alert-danger text-center text-danger p-0 mt-3"
+      }
+      dispatch(showAlertStart(alertObject));
+      return;
+    }
+    // si el formulario es válido
+    dispatch(hideAlertStart());
     dispatch(editCustomerStartAction(customer));
     history.push('/customers')
   };
@@ -59,12 +86,14 @@ const CustomerEdit = () => {
               onChange={onChangeForm}
             />
           </div>
-
           <div className="d-flex justify-content-end">
             <button className="btn btn-primary d-block w-100" type="submit">
               Modificar
             </button>
           </div>
+          {alert ? <p className={alert.classes}>{alert.msg}</p> : null}
+          {loading ? <p className="alert alert-success p-0 text-center mt-3">Cargando...</p> : null}
+          {error ? <p className="alert alert-danger p-0 text-center mt-3">Hubo un error</p> : null}
         </form>
       </div>
     </div>

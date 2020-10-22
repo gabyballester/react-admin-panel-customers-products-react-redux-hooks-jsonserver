@@ -7,6 +7,9 @@ import {
 export function showAlertStart(alert) {
     return (dispatch) => {
         dispatch(createAlertMessage(alert));
+        setTimeout(()=> {
+        dispatch(hideAlertMessage());
+        } , 3000);
     }
 }
 

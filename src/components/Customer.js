@@ -9,7 +9,6 @@ import { deleteCustomerAction, editCustomerGetAction } from "../actions/customer
 
 function Customer({ customer }) {
   const { id, name } = customer;
-  console.log(customer);
 
   const dispatch = useDispatch();
   const history = useHistory();
@@ -49,7 +48,7 @@ function Customer({ customer }) {
           </div>
 
           <div className="customer-name">
-            <p className="legend">Nombre: <span ClassName="name">{name}</span></p>
+            <p className="legend">Nombre: <span className="name">{name}</span></p>
           </div>
           
         </div>

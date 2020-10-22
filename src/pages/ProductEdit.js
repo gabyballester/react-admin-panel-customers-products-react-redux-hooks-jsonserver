@@ -5,14 +5,13 @@ import { useHistory } from "react-router-dom";
 import "./productedit.sass";
 
 const ProductEdit = () => {
-
   const history = useHistory();
   const dispatch = useDispatch();
 
   //nuevo state de producto
   const [product, saveProduct] = useState({
     name: "",
-    price: ""
+    price: "",
   });
 
   // producto a editar
@@ -31,13 +30,13 @@ const ProductEdit = () => {
     });
   };
 
-    // deconstruyo datos del producto
-    const { name, price } = product;
+  // deconstruyo datos del producto
+  const { name, price } = product;
 
   const submitEditProduct = (e) => {
     e.preventDefault();
     dispatch(editProductStartAction(product));
-    history.push('/products')
+    history.push("/products");
   };
 
   return (
@@ -47,9 +46,7 @@ const ProductEdit = () => {
       </div>
 
       <div className="main-form">
-        <form
-          onSubmit={submitEditProduct}
-          className="form-style">
+        <form onSubmit={submitEditProduct} className="form-style">
           <div className="form-group">
             <label>Nuevo nombre</label>
             <input
@@ -60,7 +57,7 @@ const ProductEdit = () => {
               placeholder="Escribe el nuevo nombre"
               autoFocus={true}
               value={name}
-            onChange={onChangeForm}
+              onChange={onChangeForm}
             />
           </div>
 
@@ -74,7 +71,7 @@ const ProductEdit = () => {
               placeholder="Escribe el nuevo precio"
               autoFocus={true}
               value={price}
-            onChange={onChangeForm}
+              onChange={onChangeForm}
             />
           </div>
 
@@ -87,83 +84,6 @@ const ProductEdit = () => {
       </div>
     </div>
   );
-}
+};
 
-export default ProductEdit
-
-
-// import React, { useState, useEffect } from "react";
-// import { useDispatch, useSelector } from "react-redux";
-// import { editCustomerStartAction } from "../actions/customerActions";
-// import { useHistory } from "react-router-dom";
-// import "./customerEdit.sass";
-
-// function CustomerEdit() {
-
-//   const history = useHistory();
-
-//   const dispatch = useDispatch();
-
-//   //nuevo state de cliente
-//   const [customer, saveCustomer] = useState({
-//     name: "",
-//   });
-
-//   // cliente a editar
-//   const customerEdit = useSelector((state) => state.customers.customerEdit);
-
-//   // // llenamos el state automáticamente
-//   useEffect(() => {
-//     saveCustomer(customerEdit);
-//   }, [customerEdit]);
-
-//   // //leer datos formulario
-//   const onChangeForm = (e) => {
-//     saveCustomer({
-//       ...customer,
-//       [e.target.name]: e.target.value,
-//     });
-//   };
-
-//   const { name } = customer;
-
-//   const submitEditCustomer = (e) => {
-//     e.preventDefault();
-//     dispatch(editCustomerStartAction(customer));
-//     history.push('/customers')
-//   };
-
-//   return (
-//     <div className="main-container-form">
-//       <div className="header-form">
-//         <h2>Editar cliente</h2>
-//       </div>
-
-//       <div className="main-form">
-//         <form onSubmit={submitEditCustomer} className="form-style">
-//           <div className="form-group">
-//             <label>Editar nombre completo</label>
-//             <input
-//               type="text"
-//               className="form-control"
-//               name="name"
-//               id="name"
-//               placeholder="Escribe el nombre completo"
-//               autoFocus={true}
-//               value={name}
-//               onChange={onChangeForm}
-//             />
-//           </div>
-
-//           <div className="d-flex justify-content-end">
-//             <button className="btn btn-primary d-block w-100" type="submit">
-//               Modificar
-//             </button>
-//           </div>
-//         </form>
-//       </div>
-//     </div>
-//   );
-// }
-
-// export default CustomerEdit;
+export default ProductEdit;

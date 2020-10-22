@@ -31,8 +31,8 @@ function CustomerNew({ history }) {
     if (name.trim() === '') {
 
       const alertObject = {
-        msg: 'Campo obligatorio',
-        classes: "alert-danger text-center text-uppercase text-danger"
+        msg: 'Sin cambios',
+        classes: "alert-danger text-center text-danger p-0 mt-3"
       }
       dispatch(showAlertStart(alertObject));
       return;
@@ -74,7 +74,6 @@ function CustomerNew({ history }) {
               placeholder="Escribe el nombre completo"
               autoFocus={true}
             />
-            {alert ? <p className={alert.classes}>{alert.msg}</p> : null}
           </div>
 
 
@@ -86,6 +85,7 @@ function CustomerNew({ history }) {
               Guardar
           </button>
           </div>
+          {alert ? <p className={alert.classes}>{alert.msg}</p> : null}
           {loading ? <p className="alert alert-success p-0 text-center mt-3">Cargando...</p> : null}
           {error ? <p className="alert alert-danger p-0 text-center mt-3">Hubo un error</p> : null}
         </form>

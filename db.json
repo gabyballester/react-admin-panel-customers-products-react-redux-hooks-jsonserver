@@ -1,26 +1,34 @@
 {
   "customers": [
     {
-      "name": "Juanjo López",
-      "id": 3
-    },
-    {
       "name": "Pascual y Genis",
       "id": 4
     },
     {
-      "name": "asdfasdf",
-      "id": 5
-    },
-    {
       "name": "Pepe Viyuela",
       "id": 6
+    },
+    {
+      "name": "asdfasdf",
+      "id": 7
+    },
+    {
+      "name": "asdfasfd",
+      "id": 8
+    },
+    {
+      "name": "asdfasdf",
+      "id": 9
+    },
+    {
+      "name": "asdfasd",
+      "id": 10
     }
   ],
   "products": [
     {
-      "name": "Usb 4m",
-      "price": "40",
+      "name": "",
+      "price": "",
       "id": 1
     },
     {
