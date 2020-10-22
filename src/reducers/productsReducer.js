@@ -8,9 +8,9 @@ import {
   DELETE_PRODUCT,
   DELETE_PRODUCT_SUCCESS,
   DELETE_PRODUCT_ERROR,
-  // EDIT_CUSTOMER_GET,
-  // EDIT_CUSTOMER_SUCCESS,
-  // EDIT_CUSTOMER_ERROR,
+  EDIT_PRODUCT_GET,
+  EDIT_PRODUCT_SUCCESS,
+  EDIT_PRODUCT_ERROR,
 } from "../types";
 //cada reducer tendrá su estado inicial
 
@@ -40,7 +40,7 @@ export default function (state = initialState, action) {
     case ADD_PRODUCT_ERROR:
     case GET_PRODUCTS_ERROR:
     case DELETE_PRODUCT_ERROR:
-      //   case EDIT_CUSTOMER_ERROR:
+    case EDIT_PRODUCT_ERROR:
       return {
         ...state,
         loading: false,
@@ -58,27 +58,29 @@ export default function (state = initialState, action) {
         ...state,
         productDelete: action.payload,
       };
-      case DELETE_PRODUCT_SUCCESS:
-        return {
-          ...state,
-          products: state.products.filter(
-            (product) => product.id !== state.productDelete
-          ),
-          productDelete: null,
-        };
-    //   case EDIT_CUSTOMER_GET:
-    //     return {
-    //       ...state,
-    //       customerEdit: action.payload,
-    //     };
-    //   case EDIT_CUSTOMER_SUCCESS:
-    //     return {
-    //       ...state,
-    //       customerEdit: null,
-    //       customers: state.customers.map(customer =>
-    //           customer.id === action.payload.id ? customer = action.payload : customer
-    //           )
-    //     };
+    case DELETE_PRODUCT_SUCCESS:
+      return {
+        ...state,
+        products: state.products.filter(
+          (product) => product.id !== state.productDelete
+        ),
+        productDelete: null,
+      };
+    case EDIT_PRODUCT_GET:
+      return {
+        ...state,
+        productEdit: action.payload,
+      };
+    case EDIT_PRODUCT_SUCCESS:
+      return {
+        ...state,
+        productEdit: null,
+        products: state.products.map((product) =>
+          product.id === action.payload.id
+            ? (product = action.payload)
+            : product
+        ),
+      };
 
     default:
       return state;

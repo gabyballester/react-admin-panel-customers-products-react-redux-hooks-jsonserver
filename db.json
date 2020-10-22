@@ -17,5 +17,16 @@
       "id": 6
     }
   ],
-  "products": []
+  "products": [
+    {
+      "name": "Usb 4m",
+      "price": "40",
+      "id": 1
+    },
+    {
+      "name": "ASDASDF",
+      "price": 3,
+      "id": 2
+    }
+  ]
 }

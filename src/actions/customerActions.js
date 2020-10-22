@@ -149,15 +149,15 @@ export function editCustomerStartAction(customer) {
 }
 
 const editCustomerStart = () => ({
-  type: EDIT_CUSTOMER_START,
+  type: EDIT_CUSTOMER_START
 });
 
 const editCustomerSuccess = (customer) => ({
   type: EDIT_CUSTOMER_SUCCESS,
-  payload: customer,
+  payload: customer
 });
 
 const editCustomerError = () => ({
   type: EDIT_CUSTOMER_ERROR,
-  payload: true,
+  payload: true
 });

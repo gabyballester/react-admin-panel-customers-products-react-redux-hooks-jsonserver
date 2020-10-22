@@ -1,7 +1,45 @@
-import React from 'react'
+import React, { useState, useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { editProductStartAction } from "../actions/productActions";
+import { useHistory } from "react-router-dom";
 import "./productedit.sass";
 
-function ProductEdit() {
+const ProductEdit = () => {
+
+  const history = useHistory();
+  const dispatch = useDispatch();
+
+  //nuevo state de producto
+  const [product, saveProduct] = useState({
+    name: "",
+    price: ""
+  });
+
+  // producto a editar
+  const productEdit = useSelector((state) => state.products.productEdit);
+
+  // llenamos el state automáticamente
+  useEffect(() => {
+    saveProduct(productEdit);
+  }, [productEdit]);
+
+  //leer datos formulario
+  const onChangeForm = (e) => {
+    saveProduct({
+      ...product,
+      [e.target.name]: e.target.value,
+    });
+  };
+
+    // deconstruyo datos del producto
+    const { name, price } = product;
+
+  const submitEditProduct = (e) => {
+    e.preventDefault();
+    dispatch(editProductStartAction(product));
+    history.push('/products')
+  };
+
   return (
     <div className="main-container-form">
       <div className="header-form">
@@ -9,9 +47,9 @@ function ProductEdit() {
       </div>
 
       <div className="main-form">
-        <form 
-        // onSubmit={submitEditCustomer} 
-        className="form-style">
+        <form
+          onSubmit={submitEditProduct}
+          className="form-style">
           <div className="form-group">
             <label>Nuevo nombre</label>
             <input
@@ -21,8 +59,8 @@ function ProductEdit() {
               id="name"
               placeholder="Escribe el nuevo nombre"
               autoFocus={true}
-            //   value={name}
-            //   onChange={onChangeForm}
+              value={name}
+            onChange={onChangeForm}
             />
           </div>
 
@@ -35,8 +73,8 @@ function ProductEdit() {
               id="price"
               placeholder="Escribe el nuevo precio"
               autoFocus={true}
-            //   value={name}
-            //   onChange={onChangeForm}
+              value={price}
+            onChange={onChangeForm}
             />
           </div>
 

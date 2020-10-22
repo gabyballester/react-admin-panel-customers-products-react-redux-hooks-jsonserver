@@ -1,18 +1,18 @@
 import React, { Fragment } from "react";
-// import { useHistory } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 import Swal from "sweetalert2";
 import "./product.sass";
 
 // Redux
 import { useDispatch } from "react-redux";
-import { deleteProductAction } from "../actions/productActions";
+import { deleteProductAction, editProductGetAction } from "../actions/productActions";
 
 function Product({ product }) {
   const { id, name, price } = product;
   // console.log(product);
 
   const dispatch = useDispatch();
-  // const history = useHistory();
+  const history = useHistory();
 
   //Confirmar si desea eliminar
   const confirmDeleteProduct = (id) => {
@@ -34,11 +34,11 @@ function Product({ product }) {
     });
   };
 
-  // //redirección a edit de forma programada
-  // const redirectToEdition = (product) => {
-  //   dispatch(editProductGetAction(product));
-  //   history.push(`/product/edit/${product.id}`);
-  // };
+  //redirección a edit de forma programada
+  const redirectToEdition = (product) => {
+    dispatch(editProductGetAction(product));
+    history.push(`/product/edit/${product.id}`);
+  };
 
   return (
     <Fragment>
@@ -58,7 +58,7 @@ function Product({ product }) {
         <div className="actions">
           <button
             type="button"
-            // onClick={() => redirectToEdition(product)}
+            onClick={() => redirectToEdition(product)}
             className="button btn btn-success"
           >
             Editar

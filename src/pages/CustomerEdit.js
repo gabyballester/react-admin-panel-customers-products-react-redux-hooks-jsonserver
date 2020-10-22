@@ -4,10 +4,9 @@ import { editCustomerStartAction } from "../actions/customerActions";
 import { useHistory } from "react-router-dom";
 import "./customeredit.sass";
 
-function CustomerEdit() {
+const CustomerEdit = () => {
 
   const history = useHistory();
-
   const dispatch = useDispatch();
 
   //nuevo state de cliente
@@ -18,7 +17,7 @@ function CustomerEdit() {
   // cliente a editar
   const customerEdit = useSelector((state) => state.customers.customerEdit);
 
-  // // llenamos el state automáticamente
+  // llenamos el state automáticamente
   useEffect(() => {
     saveCustomer(customerEdit);
   }, [customerEdit]);
@@ -30,7 +29,7 @@ function CustomerEdit() {
       [e.target.name]: e.target.value,
     });
   };
-
+// deconstruyo datos del cliente
   const { name } = customer;
 
   const submitEditCustomer = (e) => {
