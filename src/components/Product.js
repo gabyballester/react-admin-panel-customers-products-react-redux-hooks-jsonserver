@@ -1,37 +1,38 @@
 import React, { Fragment } from "react";
 // import { useHistory } from "react-router-dom";
-// import Swal from "sweetalert2";
+import Swal from "sweetalert2";
 import "./product.sass";
 
 // Redux
-// import { useDispatch } from "react-redux";
-// import { deleteProductAction, editProductGetAction } from "../actions/productActions";
+import { useDispatch } from "react-redux";
+import { deleteProductAction } from "../actions/productActions";
 
 function Product({ product }) {
-  const { name, price } = product;
+  const { id, name, price } = product;
   // console.log(product);
 
-  // const dispatch = useDispatch();
+  const dispatch = useDispatch();
   // const history = useHistory();
 
-  // //Confirmar si desea eliminar
-  // const confirmDeleteProduct = (id) => {
-  //   // preguntar
-  //   Swal.fire({
-  //     title: "¿Estás seguro?",
-  //     text: "Se borrará definitivamente",
-  //     icon: "warning",
-  //     showCancelButton: true,
-  //     confirmButtonColor: "#3085d6",
-  //     cancelButtonColor: "#d33",
-  //     confirmButtonText: " Sí, eliminar !",
-  //   }).then((result) => {
-  //     if (result.isConfirmed) {
-  //       //pasar al action
-  //       dispatch(deleteProductAction(id));
-  //     }
-  //   });
-  // };
+  //Confirmar si desea eliminar
+  const confirmDeleteProduct = (id) => {
+    console.log(id);
+    // preguntar
+    Swal.fire({
+      title: "¿Estás seguro?",
+      text: "Se borrará definitivamente",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: " Sí, eliminar !",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        // pasar al action
+        dispatch(deleteProductAction(id));
+      }
+    });
+  };
 
   // //redirección a edit de forma programada
   // const redirectToEdition = (product) => {
@@ -65,7 +66,7 @@ function Product({ product }) {
           <button
             type="button"
             className="button btn btn-danger"
-            // onClick={() => confirmDeleteProduct(id)}
+            onClick={() => confirmDeleteProduct(id)}
           >
             Eliminar
         </button>

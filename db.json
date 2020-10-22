@@ -1,10 +1,6 @@
 {
   "customers": [
     {
-      "name": "Carlos Gómez",
-      "id": 1
-    },
-    {
       "name": "Juanjo López",
       "id": 3
     },
@@ -19,52 +15,7 @@
     {
       "name": "Pepe Viyuela",
       "id": 6
-    },
-    {
-      "name": "Jorge Perezoso",
-      "id": 7
     }
   ],
-  "products": [
-    {
-      "id": 1,
-      "name": "Disco duro",
-      "price": "60"
-    },
-    {
-      "id": 2,
-      "name": "Pendrive",
-      "price": "20"
-    },
-    {
-      "name": "Ratón",
-      "price": 7,
-      "id": 3
-    },
-    {
-      "name": "Ratónes",
-      "price": 8,
-      "id": 4
-    },
-    {
-      "name": "asdf",
-      "price": 1,
-      "id": 5
-    },
-    {
-      "name": "sdfasdf",
-      "price": 1,
-      "id": 6
-    },
-    {
-      "name": "asdfasdf",
-      "price": 1,
-      "id": 7
-    },
-    {
-      "name": "asdfdsf",
-      "price": 1,
-      "id": 8
-    }
-  ]
+  "products": []
 }
