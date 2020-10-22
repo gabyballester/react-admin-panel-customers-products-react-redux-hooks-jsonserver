@@ -72,7 +72,7 @@ export function getCustomersAction() {
       dispatch(getCustomersSuccess(response.data));
     } catch (error) {
       // si falla agrega el error al state
-      dispatch(getProductsError());
+      dispatch(getCustomersError());
       console.log(error);
     }
   };
@@ -88,7 +88,7 @@ const getCustomersSuccess = (customers) => ({
   payload: customers,
 });
 
-const getProductsError = () => ({
+const getCustomersError = () => ({
   type: GET_CUSTOMERS_ERROR,
   payload: true,
 });

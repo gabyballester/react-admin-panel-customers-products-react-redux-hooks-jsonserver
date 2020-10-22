@@ -20,7 +20,7 @@ export function productAddAction(product) {
     dispatch(addProduct());
     try {
       //insertar en db.json
-      await axiosService.post("/productss", product);
+      await axiosService.post("/products", product);
       //si la inserción es correcta, actualiza el state
       dispatch(addProductSuccess(product));
       // Alerta con sweetalert
@@ -63,14 +63,14 @@ const addProductError = (state) => ({
 export function getProductsAction() {
     return async (dispatch) => {
       dispatch(getProducts());
-    //   try {
-    //     const response = await axiosService.get("/customers");
-    //     dispatch(getCustomersSuccess(response.data));
-    //   } catch (error) {
-    //     // si falla agrega el error al state
-    //     dispatch(getProductsError());
-    //     console.log(error);
-    //   }
+      try {
+        const response = await axiosService.get("/products");
+        dispatch(getProductsSuccess(response.data));
+      } catch (error) {
+        // si falla agrega el error al state
+        dispatch(getProductsError());
+        console.log(error);
+      }
     };
   }
   
@@ -79,12 +79,12 @@ export function getProductsAction() {
     payload: true,
   });
   
-//   const getCustomersSuccess = (customers) => ({
-//     type: GET_CUSTOMERS_SUCCESS,
-//     payload: customers,
-//   });
+  const getProductsSuccess = (products) => ({
+    type: GET_PRODUCTS_SUCCESS,
+    payload: products
+  });
   
-//   const getProductsError = () => ({
-//     type: GET_CUSTOMERS_ERROR,
-//     payload: true,
-//   });
+  const getProductsError = () => ({
+    type: GET_PRODUCTS_ERROR,
+    payload: true,
+  });

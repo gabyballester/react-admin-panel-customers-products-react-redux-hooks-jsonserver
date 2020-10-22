@@ -33,35 +33,28 @@ function Customers() {
         </div>
 
         <div className="main">
+          {loading ? (
+            <p className="alert alert-primary p-0 text-center mt-3">
+              "Cargando"
+            </p>
+          ) : null}
+          {error ? (
+            <p className="alert alert-danger p-0 text-center mt-3">
+              "Hubo un error"
+            </p>
+          ) : null}
           {customers.length !== 0 ? (
             customers.map((customer) => (
               <Customer key={customer.id} customer={customer} />
             ))
           ) : (
-            <tr>
-              {error ? (
-                // <p className="font-weight-bold alert alert-danger text-center">
-                <td colSpan="3">
-                  <p className="font-weight-bold text-danger">
-                    "Hubo un error"{" "}
-                  </p>
-                </td>
-              ) : (
-                <>
-                  {loading ? (
-                    <td colSpan="3">
-                      <p className="font-weight-bold text-danger">"Cargando"</p>
-                    </td>
-                  ) : (
-                    <td colSpan="3">
-                      <p className="font-weight-bold text-danger">
-                        "No hay clientes"
-                      </p>
-                    </td>
-                  )}
-                </>
-              )}
-            </tr>
+            <>
+              {!loading && !error && customers.length === 0 ? (
+                <p className="alert alert-danger p-0 text-center mt-3">
+                  "No hay clientes"
+                </p>
+              ) : null}
+            </>
           )}
         </div>
       </div>

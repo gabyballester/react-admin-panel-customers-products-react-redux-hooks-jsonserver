@@ -3,18 +3,25 @@ import { Link } from "react-router-dom";
 import "./products.sass";
 //redux
 import { useSelector, useDispatch } from "react-redux";
-import {getProductsAction} from "../actions/productActions";
+import { getProductsAction } from "../actions/productActions";
+
+// componentes
+import Product from "../components/Product";
 
 function Products() {
   const dispatch = useDispatch();
 
+  const products = useSelector((state) => state.products.products);
+  const error = useSelector((state) => state.products.error);
+  const loading = useSelector((state) => state.products.loading);
+
   useEffect(() => {
     // consultar la API
-    const getCustomers = () => dispatch(getCustomersAction());
-    getCustomers();
+    const getProducts = () => dispatch(getProductsAction());
+    getProducts();
     // eslint-disable-next-line
   }, []);
-  
+
   return (
     <Fragment>
       <div className="main-container">
@@ -26,38 +33,29 @@ function Products() {
         </div>
 
         <div className="main">
-          {/* {customers.length !== 0 ? (
-            customers.map((customer) => (
-              <Customer key={customer.id} customer={customer} />
+          {loading ? (
+            <p className="alert alert-primary p-0 text-center mt-3">
+              "Cargando"
+            </p>
+          ) : null}
+          {error ? (
+            <p className="alert alert-danger p-0 text-center mt-3">
+              "Hubo un error"
+            </p>
+          ) : null}
+          {products.length !== 0 ? (
+            products.map((product) => (
+              <Product key={product.id} product={product} />
             ))
           ) : (
-              <tr>
-                {error ? (
-                  // <p className="font-weight-bold alert alert-danger text-center">
-                  <td colSpan="3">
-                    <p className="font-weight-bold text-danger">
-                      "Hubo un error"{" "}
-                    </p>
-                  </td>
-                ) : (
-                    <>
-                      {loading ? (
-                        <td colSpan="3">
-                          <p className="font-weight-bold text-danger">
-                            "Cargando"
-                        </p>
-                        </td>
-                      ) : (
-                          <td colSpan="3">
-                            <p className="font-weight-bold text-danger">
-                              "No hay clientes"
-                        </p>
-                          </td>
-                        )}
-                    </>
-                  )}
-              </tr>
-            )} */}
+            <>
+              {!loading && !error && products.length === 0 ? (
+                <p className="alert alert-danger p-0 text-center mt-3">
+                  "No hay productos"
+                </p>
+              ) : null}
+            </>
+          )}
         </div>
       </div>
     </Fragment>

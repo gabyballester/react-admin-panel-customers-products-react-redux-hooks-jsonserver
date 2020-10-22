@@ -38,7 +38,7 @@ export default function (state = initialState, action) {
           products: [...state.products, action.payload],
         };
       case ADD_PRODUCT_ERROR:
-    //   case GET_CUSTOMERS_ERROR:
+      case GET_PRODUCTS_ERROR:
     //   case DELETE_CUSTOMER_ERROR:
     //   case EDIT_CUSTOMER_ERROR:
         return {
@@ -46,13 +46,13 @@ export default function (state = initialState, action) {
           loading: false,
           error: action.payload,
         };
-    //   case GET_CUSTOMERS_SUCCESS:
-    //     return {
-    //       ...state,
-    //       loading: false,
-    //       error: null,
-    //       customers: action.payload,
-    //     };
+      case GET_PRODUCTS_SUCCESS:
+        return {
+          ...state,
+          loading: false,
+          error: null,
+          products: action.payload,
+        };
     //   case DELETE_CUSTOMER:
     //     return {
     //       ...state,
