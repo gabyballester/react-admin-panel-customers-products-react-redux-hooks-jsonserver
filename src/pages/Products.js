@@ -1,19 +1,31 @@
-import React, {Fragment} from 'react'
-import {Link} from 'react-router-dom';
+import React, { Fragment, useEffect } from "react";
+import { Link } from "react-router-dom";
 import "./products.sass";
+//redux
+import { useSelector, useDispatch } from "react-redux";
+import {getProductsAction} from "../actions/productActions";
 
 function Products() {
-    return (
-    <div className="main-container">
+  const dispatch = useDispatch();
 
-      <div className="header">
-        <h2>Productos</h2>
-        <Link to={"/customer/new"} className="button-new btn btn-primary">
-         &#43;<span>Nuevo</span>
-        </Link>
-      </div>
+  useEffect(() => {
+    // consultar la API
+    const getCustomers = () => dispatch(getCustomersAction());
+    getCustomers();
+    // eslint-disable-next-line
+  }, []);
+  
+  return (
+    <Fragment>
+      <div className="main-container">
+        <div className="header">
+          <h2>Productos</h2>
+          <Link to={"/product/new"} className="button-new btn btn-primary">
+            &#43;<span>Nuevo</span>
+          </Link>
+        </div>
 
-      <div className="main">
+        <div className="main">
           {/* {customers.length !== 0 ? (
             customers.map((customer) => (
               <Customer key={customer.id} customer={customer} />
@@ -47,12 +59,12 @@ function Products() {
               </tr>
             )} */}
         </div>
-    </div>
+      </div>
+    </Fragment>
   );
 }
 
-export default Products
-
+export default Products;
 
 // import React, { useEffect } from "react";
 // import { Link } from "react-router-dom";

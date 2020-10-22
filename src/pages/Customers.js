@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { Fragment, useEffect } from "react";
 import { Link } from "react-router-dom";
 import "./customers.sass";
 //redux
@@ -23,50 +23,49 @@ function Customers() {
   }, []);
 
   return (
-    <div className="main-container">
+    <Fragment>
+      <div className="main-container">
+        <div className="header">
+          <h2>Clientes</h2>
+          <Link to={"/customer/new"} className="button-new btn btn-primary">
+            &#43;<span>Nuevo</span>
+          </Link>
+        </div>
 
-      <div className="header">
-        <h2>Clientes</h2>
-        <Link to={"/customer/new"} className="button-new btn btn-primary">
-         &#43;<span>Nuevo</span>
-        </Link>
-      </div>
-
-      <div className="main">
+        <div className="main">
           {customers.length !== 0 ? (
             customers.map((customer) => (
               <Customer key={customer.id} customer={customer} />
             ))
           ) : (
-              <tr>
-                {error ? (
-                  // <p className="font-weight-bold alert alert-danger text-center">
-                  <td colSpan="3">
-                    <p className="font-weight-bold text-danger">
-                      "Hubo un error"{" "}
-                    </p>
-                  </td>
-                ) : (
-                    <>
-                      {loading ? (
-                        <td colSpan="3">
-                          <p className="font-weight-bold text-danger">
-                            "Cargando"
-                        </p>
-                        </td>
-                      ) : (
-                          <td colSpan="3">
-                            <p className="font-weight-bold text-danger">
-                              "No hay clientes"
-                        </p>
-                          </td>
-                        )}
-                    </>
+            <tr>
+              {error ? (
+                // <p className="font-weight-bold alert alert-danger text-center">
+                <td colSpan="3">
+                  <p className="font-weight-bold text-danger">
+                    "Hubo un error"{" "}
+                  </p>
+                </td>
+              ) : (
+                <>
+                  {loading ? (
+                    <td colSpan="3">
+                      <p className="font-weight-bold text-danger">"Cargando"</p>
+                    </td>
+                  ) : (
+                    <td colSpan="3">
+                      <p className="font-weight-bold text-danger">
+                        "No hay clientes"
+                      </p>
+                    </td>
                   )}
-              </tr>
-            )}
+                </>
+              )}
+            </tr>
+          )}
         </div>
-    </div>
+      </div>
+    </Fragment>
   );
 }
 

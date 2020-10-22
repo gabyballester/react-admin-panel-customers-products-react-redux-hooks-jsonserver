@@ -27,11 +27,16 @@ export function customerAddAction(customer) {
       //insertar en db
       await axiosService.post("/customers", customer);
       //si la inserción es correcta, actualiza el state
-      dispatch(addProductSuccess(customer));
-      console.log(customer);
+      dispatch(addCustomerSuccess(customer));
+      Swal.fire("Correcto", "El cliente se agregó correctamente", "success");
     } catch (error) {
       // si falla agrega el error al state
-      dispatch(addProductError(true));
+      dispatch(addCustomerError(true));
+      Swal.fire({
+        icon: "error",
+        title: "Error",
+        text: "Hubo un error, intenta de nuevo",
+      });
     }
   };
 }
@@ -43,18 +48,18 @@ const addCustomer = () => ({
 });
 
 // guardado en store
-const addProductSuccess = (customer) => ({
+const addCustomerSuccess = (customer) => ({
   type: ADD_CUSTOMER_SUCCESS,
   payload: customer,
 });
 
 // fallo en el guardado
-const addProductError = (state) => ({
+const addCustomerError = (state) => ({
   type: ADD_CUSTOMER_ERROR,
   payload: state,
 });
 
-// Descarga de clientes de db
+// Descarga de customers de db
 /* Al ser función principal del proceso es la que se llama en el componente
     y será pues la que declaramos como export function
 */
@@ -134,14 +139,11 @@ export function editCustomerStartAction(customer) {
   return async (dispatch) => {
     dispatch(editCustomerStart());
     try {
-      await axiosService.put(
-        `/customers/${customer.id}`,
-        customer
-      );
+      await axiosService.put(`/customers/${customer.id}`, customer);
       dispatch(editCustomerSuccess(customer));
     } catch (error) {
-        console.log(error);
-        dispatch(editCustomerError());
+      console.log(error);
+      dispatch(editCustomerError());
     }
   };
 }
@@ -156,6 +158,6 @@ const editCustomerSuccess = (customer) => ({
 });
 
 const editCustomerError = () => ({
-    type: EDIT_CUSTOMER_ERROR,
-    payload: true,
-  });
+  type: EDIT_CUSTOMER_ERROR,
+  payload: true,
+});

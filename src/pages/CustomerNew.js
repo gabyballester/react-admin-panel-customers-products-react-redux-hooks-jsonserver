@@ -86,8 +86,8 @@ function CustomerNew({ history }) {
               Guardar
           </button>
           </div>
-          {loading ? <p> Cargando...</p> : null}
-          {error ? <p className="alert alert-danger p2">Hubo un error</p> : null}
+          {loading ? <p className="alert alert-success p-0 text-center mt-3">Cargando...</p> : null}
+          {error ? <p className="alert alert-danger p-0 text-center mt-3">Hubo un error</p> : null}
         </form>
       </div>
     </div>
