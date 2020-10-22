@@ -31,7 +31,7 @@ const ProductNew = ({ history }) => {
     if (name.trim() === "" || price <= 0) {
       const alertObject = {
         msg: "Ambos campos son obligatorios",
-        classes: "alert alert-danger text-center text-danger",
+        classes: "alert-danger text-center text-danger p-0 mt-3",
       };
       dispatch(showAlertStart(alertObject));
       return;
@@ -67,7 +67,7 @@ const ProductNew = ({ history }) => {
               name="name"
               value={name}
               onChange={(e) => setname(e.target.value)}
-              placeholder="Nombre del producto"
+              placeholder="Escribe el nombre del producto"
               autoFocus={true}
             />
           </div>
@@ -90,11 +90,6 @@ const ProductNew = ({ history }) => {
             </button>
           </div>
           {alert ? <p className={alert.classes}>{alert.msg}</p> : null}
-          {alert ? (
-            <p className="alert alert-success p-0 text-center mt-3">
-              Cargando...
-            </p>
-          ) : null}
           {loading ? (
             <p className="alert alert-success p-0 text-center mt-3">
               Cargando...

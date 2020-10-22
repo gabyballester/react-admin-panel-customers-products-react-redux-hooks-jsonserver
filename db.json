@@ -1,40 +1,30 @@
 {
   "customers": [
     {
-      "name": "Pascual y Genis",
-      "id": 4
-    },
-    {
       "name": "Pepe Viyuela",
       "id": 6
-    },
-    {
-      "name": "asdfasdf",
-      "id": 7
-    },
-    {
-      "name": "asdfasfd",
-      "id": 8
-    },
-    {
-      "name": "asdfasdf",
-      "id": 9
-    },
-    {
-      "name": "asdfasd",
-      "id": 10
     }
   ],
   "products": [
     {
-      "name": "",
-      "price": "",
+      "name": "Torre",
+      "price": "2",
       "id": 1
     },
     {
       "name": "ASDASDF",
       "price": 3,
       "id": 2
+    },
+    {
+      "name": "asdfasdf",
+      "price": 111,
+      "id": 3
+    },
+    {
+      "name": "asdfasdf",
+      "price": 22,
+      "id": 4
     }
   ]
 }

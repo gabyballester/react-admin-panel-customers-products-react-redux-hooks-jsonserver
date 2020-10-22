@@ -47,7 +47,7 @@ function Navbar() {
                   {sidebar ? (
                     <div>
                       {item.icon}
-                      <span>{item.title}</span>
+                      <span className="ml-3">{item.title}</span>
                     </div>
                   ) : (
                       <div>{item.icon}</div>

@@ -53,7 +53,7 @@ const CustomerEdit = () => {
     // Impedir campos iguales
     if (name === customerEdit.name) {
       const alertObject = {
-        msg: 'Sin cambios',
+        msg: 'Sin cambios en el formulario',
         classes: "alert-danger text-center text-danger p-0 mt-3"
       }
       dispatch(showAlertStart(alertObject));

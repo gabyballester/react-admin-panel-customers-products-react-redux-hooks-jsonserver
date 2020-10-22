@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { editProductStartAction } from "../actions/productActions";
 import { useHistory } from "react-router-dom";
 import "./productedit.sass";
+import { showAlertStart, hideAlertStart } from '../actions/alertActions';
 
 const ProductEdit = () => {
   const history = useHistory();
@@ -16,6 +17,10 @@ const ProductEdit = () => {
 
   // producto a editar
   const productEdit = useSelector((state) => state.products.productEdit);
+  //Acceder al state del store con useSelector
+  const loading = useSelector(state => state.customers.loading);
+  const error = useSelector(state => state.customers.error);
+  const alert = useSelector(state => state.alert.alert);
 
   // llenamos el state automáticamente
   useEffect(() => {
@@ -24,6 +29,8 @@ const ProductEdit = () => {
 
   //leer datos formulario
   const onChangeForm = (e) => {
+    // Reseteo la posible alerta
+    dispatch(hideAlertStart());
     saveProduct({
       ...product,
       [e.target.name]: e.target.value,
@@ -35,6 +42,26 @@ const ProductEdit = () => {
 
   const submitEditProduct = (e) => {
     e.preventDefault();
+
+    // validar formulario
+    if (name.trim() === "" || price <= 0) {
+      const alertObject = {
+        msg: "Ambos campos son obligatorios",
+        classes: "alert-danger text-center text-danger p-0 mt-3"
+      }
+      dispatch(showAlertStart(alertObject));
+      return;
+    }
+    // Impedir campos iguales
+    if (name === productEdit.name && price === productEdit.price ) {
+      const alertObject = {
+        msg: 'Sin cambios en el formulario',
+        classes: "alert-danger text-center text-danger p-0 mt-3"
+      }
+      dispatch(showAlertStart(alertObject));
+      return;
+    }
+    dispatch(hideAlertStart());
     dispatch(editProductStartAction(product));
     history.push("/products");
   };
@@ -80,6 +107,9 @@ const ProductEdit = () => {
               Modificar
             </button>
           </div>
+          {alert ? <p className={alert.classes}>{alert.msg}</p> : null}
+          {loading ? <p className="alert alert-success p-0 text-center mt-3">Cargando...</p> : null}
+          {error ? <p className="alert alert-danger p-0 text-center mt-3">Hubo un error</p> : null}
         </form>
       </div>
     </div>
