@@ -7,13 +7,22 @@
     {
       "name": "Pedro Padrón",
       "id": 7
+    },
+    {
+      "name": "Marta López",
+      "id": 8
     }
   ],
   "products": [
     {
       "name": "Torre",
-      "price": "2",
+      "price": "20",
       "id": 1
+    },
+    {
+      "name": "Ratón",
+      "price": 7,
+      "id": 2
     }
   ],
   "users": [
