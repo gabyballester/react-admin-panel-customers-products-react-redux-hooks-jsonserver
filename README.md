@@ -28,13 +28,13 @@ yarn start
 - Diseño liviano usando Grid, Flexbox y Bootstrap donde se requería para facilitar la tarea.
 
 ## Mejoras
-Por falta de tiempo no he podido aplicar muchas mejores como un autenticado adecuado con jwt y securizar las rutas con un componente de orden superior para que no permita el paso a menos que el usuario esté autenticado.
+- Por falta de tiempo no he podido aplicar muchas mejores como un autenticado adecuado con jwt y securizar las rutas con un componente de orden superior para que no permita el paso a menos que el usuario esté autenticado.
+- El diseño es mejorable también con algo más de tiempo.
 
 ## Capturas del proyecto
-<img src="snapshot1.jpg" width="33%" />
-<img src="snapshot2.jpg" width="33%" />
-<img src="snapshot3.jpg" width="33%" />
-
+![Captura de pantalla 1 del Ecommerce Panel](snapshot1.jpg)
+![Captura de pantalla 2 del Ecommerce Panel](snapshot2.jpg)
+![Captura de pantalla 3 del Ecommerce Panel](snapshot3.jpg)
 
 
 
