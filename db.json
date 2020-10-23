@@ -35,6 +35,11 @@
       "email": "asdf",
       "password": "asdf",
       "id": 2
+    },
+    {
+      "email": "pepe",
+      "password": "pepe",
+      "id": 3
     }
   ]
 }
