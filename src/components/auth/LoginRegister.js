@@ -109,8 +109,7 @@ const LoginRegister = ({ history }) => {
                 className="form-control"
                 id="email"
                 name="email"
-                // required
-                // value={email}
+                required
                 onChange={(e) => onChange(e)}
                 placeholder="Escribe el nombre completo"
                 autoFocus={true}
@@ -124,8 +123,7 @@ const LoginRegister = ({ history }) => {
                 className="form-control"
                 id="password"
                 name="password"
-                // required
-                // value={password}
+                required
                 onChange={(e) => onChange(e)}
                 placeholder="Escribe el nombre completo"
                 autoFocus={true}
