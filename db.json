@@ -1,8 +1,12 @@
 {
   "customers": [
     {
-      "name": "Pepe Viyuela",
+      "name": "Jose Jarque",
       "id": 6
+    },
+    {
+      "name": "Pedro Padrón",
+      "id": 7
     }
   ],
   "products": [
@@ -10,21 +14,18 @@
       "name": "Torre",
       "price": "2",
       "id": 1
+    }
+  ],
+  "users": [
+    {
+      "email": "Pedro",
+      "password": "asdf",
+      "id": 1
     },
     {
-      "name": "ASDASDF",
-      "price": 3,
+      "email": "asdf",
+      "password": "asdf",
       "id": 2
-    },
-    {
-      "name": "asdfasdf",
-      "price": 111,
-      "id": 3
-    },
-    {
-      "name": "asdfasdf",
-      "price": 22,
-      "id": 4
     }
   ]
 }

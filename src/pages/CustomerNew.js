@@ -1,6 +1,8 @@
-import React, { useState } from "react";
+import React, { Fragment, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import "./customerNew.sass";
+import "./customernew.sass";
+// Componentes
+import Navbar from "../components/Navbar";
 
 //Actions de Redux
 import { customerAddAction } from "../actions/customerActions.js";
@@ -47,46 +49,49 @@ function CustomerNew({ history }) {
   };
 
   return (
-    <div className="main-container-form">
-      <div className="header-form">
-        <h2>Nuevo cliente</h2>
-      </div>
+    <Fragment>
+      <Navbar />
+      <div className="main-container-form">
+        <div className="header-form">
+          <h2>Nuevo cliente</h2>
+        </div>
 
-      <div className="main-form">
-        <form onSubmit={submitNewCustomer} className="form-style">
-          <div className="form-group">
-            <label>Escribe nombre completo</label>
-            <input
-              type="text"
-              className="form-control"
-              id="name"
-              name="name"
-              value={name}
-              onChange={(e) => setname(e.target.value)}
-              placeholder="Escribe el nombre completo"
-              autoFocus={true}
-            />
-          </div>
+        <div className="main-form">
+          <form onSubmit={submitNewCustomer} className="form-style">
+            <div className="form-group">
+              <label>Escribe nombre completo</label>
+              <input
+                type="text"
+                className="form-control"
+                id="name"
+                name="name"
+                value={name}
+                onChange={(e) => setname(e.target.value)}
+                placeholder="Escribe el nombre completo"
+                autoFocus={true}
+              />
+            </div>
 
-          <div className="d-flex justify-content-end">
-            <button className="btn btn-primary d-block w-100" type="submit">
-              Guardar
+            <div className="d-flex justify-content-end">
+              <button className="btn btn-primary d-block w-100" type="submit">
+                Guardar
             </button>
-          </div>
-          {alert ? <p className={alert.classes}>{alert.msg}</p> : null}
-          {loading ? (
-            <p className="alert alert-success p-0 text-center mt-3">
-              Cargando...
-            </p>
-          ) : null}
-          {error ? (
-            <p className="alert alert-danger p-0 text-center mt-3">
-              Hubo un error
-            </p>
-          ) : null}
-        </form>
+            </div>
+            {alert ? <p className={alert.classes}>{alert.msg}</p> : null}
+            {loading ? (
+              <p className="alert alert-success p-0 text-center mt-3">
+                Cargando...
+              </p>
+            ) : null}
+            {error ? (
+              <p className="alert alert-danger p-0 text-center mt-3">
+                Hubo un error
+              </p>
+            ) : null}
+          </form>
+        </div>
       </div>
-    </div>
+    </Fragment>
   );
 }
 

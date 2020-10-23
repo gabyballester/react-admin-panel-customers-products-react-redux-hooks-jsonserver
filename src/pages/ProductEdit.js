@@ -1,9 +1,13 @@
-import React, { useState, useEffect } from "react";
+import React, { Fragment, useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { editProductStartAction } from "../actions/productActions";
 import { useHistory } from "react-router-dom";
+// import de estilos
 import "./productedit.sass";
+// Alertas
 import { showAlertStart, hideAlertStart } from '../actions/alertActions';
+// componentes
+import Navbar from "../components/Navbar";
 
 const ProductEdit = () => {
   const history = useHistory();
@@ -67,6 +71,8 @@ const ProductEdit = () => {
   };
 
   return (
+    <Fragment>
+    <Navbar/>
     <div className="main-container-form">
       <div className="header-form">
         <h2>Editar producto</h2>
@@ -113,6 +119,7 @@ const ProductEdit = () => {
         </form>
       </div>
     </div>
+    </Fragment>
   );
 };
 

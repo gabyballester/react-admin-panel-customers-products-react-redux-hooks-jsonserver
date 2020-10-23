@@ -1,3 +1,8 @@
+//types para users
+export const ADD_USER = 'ADD_USER';
+export const ADD_USER_SUCCESS = 'ADD_USER_SUCCESS';
+export const ADD_USER_ERROR = 'ADD_USER_ERROR';
+
 //types para customers
 export const ADD_CUSTOMER = 'ADD_CUSTOMER';
 export const ADD_CUSTOMER_SUCCESS = 'ADD_CUSTOMER_SUCCESS';

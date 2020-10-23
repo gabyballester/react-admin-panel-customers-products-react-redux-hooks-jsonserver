@@ -1,9 +1,12 @@
-import React, { useState, useEffect } from "react";
+import React, { Fragment, useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { editCustomerStartAction } from "../actions/customerActions";
 import { useHistory } from "react-router-dom";
 import "./customeredit.sass";
+// Import alert actions
 import { showAlertStart, hideAlertStart } from '../actions/alertActions';
+// Componentes
+import Navbar from "../components/Navbar";
 
 const CustomerEdit = () => {
 
@@ -66,37 +69,40 @@ const CustomerEdit = () => {
   };
 
   return (
-    <div className="main-container-form">
-      <div className="header-form">
-        <h2>Editar cliente</h2>
-      </div>
+    <Fragment>
+      <Navbar />
+      <div className="main-container-form">
+        <div className="header-form">
+          <h2>Editar cliente</h2>
+        </div>
 
-      <div className="main-form">
-        <form onSubmit={submitEditCustomer} className="form-style">
-          <div className="form-group">
-            <label>Editar nombre completo</label>
-            <input
-              type="text"
-              className="form-control"
-              name="name"
-              id="name"
-              placeholder="Escribe el nombre completo"
-              autoFocus={true}
-              value={name}
-              onChange={onChangeForm}
-            />
-          </div>
-          <div className="d-flex justify-content-end">
-            <button className="btn btn-primary d-block w-100" type="submit">
-              Modificar
+        <div className="main-form">
+          <form onSubmit={submitEditCustomer} className="form-style">
+            <div className="form-group">
+              <label>Editar nombre completo</label>
+              <input
+                type="text"
+                className="form-control"
+                name="name"
+                id="name"
+                placeholder="Escribe el nombre completo"
+                autoFocus={true}
+                value={name}
+                onChange={onChangeForm}
+              />
+            </div>
+            <div className="d-flex justify-content-end">
+              <button className="btn btn-primary d-block w-100" type="submit">
+                Modificar
             </button>
-          </div>
-          {alert ? <p className={alert.classes}>{alert.msg}</p> : null}
-          {loading ? <p className="alert alert-success p-0 text-center mt-3">Cargando...</p> : null}
-          {error ? <p className="alert alert-danger p-0 text-center mt-3">Hubo un error</p> : null}
-        </form>
+            </div>
+            {alert ? <p className={alert.classes}>{alert.msg}</p> : null}
+            {loading ? <p className="alert alert-success p-0 text-center mt-3">Cargando...</p> : null}
+            {error ? <p className="alert alert-danger p-0 text-center mt-3">Hubo un error</p> : null}
+          </form>
+        </div>
       </div>
-    </div>
+    </Fragment>
   );
 }
 

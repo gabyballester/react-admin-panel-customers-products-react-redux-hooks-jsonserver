@@ -7,6 +7,7 @@ import { getCustomersAction } from "../actions/customerActions";
 
 // componentes
 import Customer from "../components/Customer";
+import Navbar from "../components/Navbar";
 
 function Customers() {
   const dispatch = useDispatch();
@@ -24,6 +25,7 @@ function Customers() {
 
   return (
     <Fragment>
+      <Navbar/>
       <div className="main-container">
         <div className="header">
           <h2>Clientes</h2>

@@ -7,6 +7,7 @@ import { getProductsAction } from "../actions/productActions";
 
 // componentes
 import Product from "../components/Product";
+import Navbar from "../components/Navbar";
 
 function Products() {
   const dispatch = useDispatch();
@@ -24,6 +25,7 @@ function Products() {
 
   return (
     <Fragment>
+      <Navbar/>
       <div className="main-container">
         <div className="header">
           <h2>Productos</h2>
@@ -34,7 +36,7 @@ function Products() {
 
         <div className="main">
           {loading ? (
-            <p className="alert alert-primary p-0 text-center mt-3">
+            <p className="product-alert alert alert-primary p-0 text-center mt-3">
               "Cargando"
             </p>
           ) : null}
