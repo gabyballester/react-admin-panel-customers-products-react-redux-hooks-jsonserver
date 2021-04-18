@@ -23,6 +23,7 @@ const initialState = {
 };
 
 // le paso state inicial
+// eslint-disable-next-line
 export default function (state = initialState, action) {
   switch (action.type) {
     case ADD_PRODUCT:

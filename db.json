@@ -1,7 +1,7 @@
 {
   "customers": [
     {
-      "name": "Jose Jarque",
+      "name": "Jose Jarqueaaa",
       "id": 6
     },
     {
@@ -11,6 +11,10 @@
     {
       "name": "Marta López",
       "id": 8
+    },
+    {
+      "name": "asdf",
+      "id": 9
     }
   ],
   "products": [
@@ -40,6 +44,16 @@
       "email": "pepe",
       "password": "pepe",
       "id": 3
+    },
+    {
+      "email": "asdf@asdf.es",
+      "password": "asdfasdf",
+      "id": 4
+    },
+    {
+      "email": "asfd@asdf.es",
+      "password": "asdfasdf",
+      "id": 5
     }
   ]
 }
