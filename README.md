@@ -1,13 +1,19 @@
 Proyecto creado con [Create React App](https://github.com/facebook/create-react-app).
 
+## Instalación de dependencias
+
+```
+yarn startserver
+```
+
 ## Scripts de arranque
 
 - Arranque de json-server en [http://localhost:4000](http://localhost:4000)
 ```
-json-server --port 4000 db.json
+yarn startserver
 ```
 
-- Arranque de cliente de ReactJS en [http://localhost:3000](http://localhost:3000) -->
+- Arranque de cliente de ReactJS en [http://localhost:3000](http://localhost:3000)
 ```
 yarn start
 ```
