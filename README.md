@@ -3,7 +3,7 @@ Proyecto creado con [Create React App](https://github.com/facebook/create-react-
 ## Instalación de dependencias
 
 ```
-yarn startserver
+yarn install
 ```
 
 ## Scripts de arranque
