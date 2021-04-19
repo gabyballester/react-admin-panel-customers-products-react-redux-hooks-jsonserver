@@ -15,6 +15,10 @@
     {
       "name": "asdf",
       "id": 9
+    },
+    {
+      "name": "Pepe",
+      "id": 10
     }
   ],
   "products": [
@@ -54,6 +58,11 @@
       "email": "asfd@asdf.es",
       "password": "asdfasdf",
       "id": 5
+    },
+    {
+      "email": "juan@juan.es",
+      "password": "asdfasdf",
+      "id": 6
     }
   ]
 }
