@@ -14,7 +14,7 @@ React + redux + json-server
 yarn startserver
 ```
 
-- Arranque de cliente de ReactJS en [http://localhost:3000](http://localhost:3000)
+- Arranque de cliente de ReactJs en [http://localhost:3000](http://localhost:3000)
 ```
 yarn start
 ```
